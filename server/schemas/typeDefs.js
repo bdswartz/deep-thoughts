@@ -29,8 +29,6 @@ type User {
     thoughts: [Thought]
     friends: [User]
   }
-  
-
 
 type Query {
     me: User
@@ -52,7 +50,6 @@ type Query {
     token: ID!
     user: User
   }
-  
 `;
 
 // export the typeDefs
