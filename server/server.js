@@ -27,7 +27,7 @@ app.use(express.json());
 
 // Serve up static assets from the React client/build directory when in 
 // the production environment (will happen automatically on Heroku if there is
-// a "build" script in the package.json)
+// a "build" script in the package.json ie "build": "cd client && npm run build")
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
