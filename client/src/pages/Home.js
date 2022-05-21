@@ -2,8 +2,8 @@ import React from 'react';
 // import the useQuery Hook from Apollo Client
 import { useQuery } from '@apollo/client';
 // import the thoughts query from utils folder
-import ThoughtList from '../components/ThoughtList';
 import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
+import ThoughtList from '../components/ThoughtList';
 import Auth from '../utils/auth';
 import FriendList from '../components/FriendList';
 import ThoughtForm from '../components/ThoughtForm';
@@ -16,6 +16,8 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData } = useQuery(QUERY_ME_BASIC);
+  // optional chaining - until the query fulfills, an empty array will populate it
+  // instead of being undefined
   const thoughts = data?.thoughts || [];
   console.log(thoughts);
 

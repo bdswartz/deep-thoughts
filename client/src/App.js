@@ -16,7 +16,7 @@ import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import { setContext } from '@apollo/client/link/context'; 
 
-
+// Create link to the GraphQL endpoint on the backend server.
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -31,6 +31,8 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// instantiate an Apollo Client and link it to the backend server endpoint
+// tell the client to cache in memory (by default)
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
@@ -38,6 +40,8 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    // wrap in Apollo Provider and send the client variable to provide
+    // access to the backend server
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">

@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+// wrap the query in named Query_Thoughts and use gql f(x) with 
+// template literal
 export const QUERY_THOUGHTS = gql`
   query thoughts($username: String) {
     thoughts(username: $username) {
